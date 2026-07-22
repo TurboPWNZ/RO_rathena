@@ -1,5 +1,10 @@
 // Copyright (c) rAthena Dev Teams - Licensed under GNU GPL
 // For more information, see LICENCE in the main folder
+#pragma once
+
+#define PACKETVER 20180620
+
+#undef PACKET_OBFUSCATION
 
 #ifndef CONFIG_CUSTOM_DEFINES_PRE_HPP
 #define CONFIG_CUSTOM_DEFINES_PRE_HPP
