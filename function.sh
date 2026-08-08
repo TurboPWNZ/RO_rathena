@@ -7,13 +7,20 @@ PKG=rathena
 PKG_PATH="${INST_PATH}/${PKG}"
 
 check_files() {
-    for i in ${L_SRV} ${C_SRV} ${M_SRV} ${W_SRV}
+    for i in ${L_SRV} ${C_SRV} ${M_SRV}
     do
         if [ ! -f ./$i ]; then
             echo "$i does not exist... exiting..."
-            exit 1;
+            exit 1
         fi
     done
+
+    if [ "$ENWEB" ]; then
+        if [ ! -f ./$W_SRV ]; then
+            echo "$W_SRV does not exist... exiting..."
+            exit 1
+        fi
+    fi
 }
 
 check_inst_right(){
