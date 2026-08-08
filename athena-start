@@ -109,17 +109,29 @@ case $1 in
 		check_files
 		echo "Check complete."
 		echo "Looks like a good, nice rAthena!"
+		ENLOG=
+		ENWEB=
+		
 		if [ "$2" = "--enlog" ]; then
-		 ENLOG=1
+		    ENLOG=1
+		fi
+		
+		if [ "$2" = "--web" ] || [ "$3" = "--web" ]; then
+		    ENWEB=1
+		fi
 		 if [ ! -d "$LOG_DIR" ]; then mkdir -p $LOG_DIR; fi
 		 echo "Logging is enabled in $LOG_DIR"
 		else
 		 echo "Logging is disabled"
 		fi
-		for i in ${L_SRV} ${C_SRV} ${M_SRV} ${W_SRV}
+		for i in ${L_SRV} ${C_SRV} ${M_SRV}
 		do
-			start_serv $i $ENLOG
+		    start_serv $i $ENLOG
 		done
+		
+		if [ "$ENWEB" ]; then
+		    start_serv $W_SRV $ENLOG
+		fi
 		echo "rAthena was started."
 	;;
 	'watch')
