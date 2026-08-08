@@ -308,10 +308,10 @@ static void display_title(void) {
 	ShowMessage("" CL_PASS "       " CL_GREEN "              http://rathena.org/board/                        " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
 	ShowMessage("" CL_PASS "     " CL_BOLD "                                                                 " CL_PASS "" CL_CLL "" CL_NORMAL "\n");
 
-	// if( svn[0] != UNKNOWN_VERSION )
-	// 	ShowInfo("SVN Revision: '" CL_WHITE "%s" CL_RESET "'\n", svn);
-	// else if( git[0] != UNKNOWN_VERSION )
-	// 	ShowInfo("Git Hash: '" CL_WHITE "%s" CL_RESET "'\n", git);
+	if( svn[0] != UNKNOWN_VERSION )
+		ShowInfo("SVN Revision: '" CL_WHITE "%s" CL_RESET "'\n", svn);
+	else if( git[0] != UNKNOWN_VERSION )
+		ShowInfo("Git Hash: '" CL_WHITE "%s" CL_RESET "'\n", git);
 }
 
 // Warning if executed as superuser (root)
